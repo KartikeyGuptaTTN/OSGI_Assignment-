@@ -15,6 +15,15 @@ public class StudentClassServiceImpl implements StudentClassService {
         studentList.add(new Student(1, "Ramesh", 85, 26));
         studentList.add(new Student(2, "Suresh", 35, 16));
         studentList.add(new Student(3, "Kohli", 20, 20));
+        studentList.add(new Student(4, "Virat", 90, 22));
+        studentList.add(new Student(5, "Rohit", 79, 21));
+        studentList.add(new Student(6, "Sharma", 10, 21));
+        studentList.add(new Student(7, "Hardik", 15, 24));
+        studentList.add(new Student(8, "Pandya", 45, 25));
+        studentList.add(new Student(9, "Jasprit", 80, 26));
+        studentList.add(new Student(10, "Bumrah", 23, 23));
+        studentList.add(new Student(11, "Ravi", 30, 26));
+
     }
 
     @Override
