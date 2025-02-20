@@ -2,10 +2,10 @@ package com.ttn.demo.core.services;
 
 import com.ttn.demo.core.models.Student;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Component(service = StudentClassService.class)
 public class StudentClassServiceImpl implements StudentClassService {
@@ -25,6 +25,8 @@ public class StudentClassServiceImpl implements StudentClassService {
         studentList.add(new Student(11, "Ravi", 30, 26));
 
     }
+    @Reference
+    private ClassConfigurationService classConfigService;
 
     @Override
     public String addStudent(Student student) {
@@ -39,7 +41,8 @@ public class StudentClassServiceImpl implements StudentClassService {
 
     @Override
     public boolean isStudentPassed(int id) {
-        return studentList.stream().anyMatch(s -> s.getId() == id && s.getMarks() >= 40);
+        int passingmarks = classConfigService.getPassingMarks();
+        return studentList.stream().anyMatch(s -> s.getId() == id && s.getMarks() >= passingmarks);
     }
 
     @Override
